@@ -14,11 +14,9 @@ from .serializers import RegisterSerializer, OTPVerifySerializer
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
+        ip = x_forwarded_for.split(',')[0].strip()  
         ip = request.META.get('REMOTE_ADDR')
     return ip
-
 def get_country_from_ip(ip):
     try:
         response = requests.get(f"https://ipapi.co/{ip}/json/")
@@ -44,6 +42,7 @@ class RegisterView(generics.GenericAPIView):
 
             # Get IP and Country
             ip = get_client_ip(request)
+            print(f"Detected IP: {ip}")  
             country = get_country_from_ip(ip)
 
             # Save UserInfo
