@@ -22,8 +22,3 @@ class UserInfo(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.ip_address} ({self.country})"
-
-def is_expired(self):
-        from django.utils import timezone
-        from datetime import timedelta
-        return timezone.now() > self.created_at + timedelta(minutes=5)
