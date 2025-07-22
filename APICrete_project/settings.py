@@ -77,9 +77,7 @@ EMAIL_HOST_USER = 'ummemuna14@gmail.com'          # Replace with your Gmail
 EMAIL_HOST_PASSWORD = 'shba lqmb jvtz ahkn'       # Use App Password, NOT your Gmail password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['otp-create.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Database
