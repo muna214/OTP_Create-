@@ -27,6 +27,10 @@ def get_country_from_ip(ip):
     except:
         pass
     return "Unknown"
+# In your RegisterView after user.save()
+ip = get_client_ip(request)
+country = get_country_from_ip(ip)
+UserInfo.objects.create(user=user, ip_address=ip, country=country)
 
 # --------- Register View --------- #
 class RegisterView(generics.GenericAPIView):
